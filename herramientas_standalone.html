@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requerimientos de Herramientas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            line-height: 1.4;
+        }
+        
+        .nav-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+        }
+        
+        .back-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .header-section {
+            margin-bottom: 30px;
+        }
+        
+        .header-field {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .header-field label {
+            font-weight: bold;
+            min-width: 120px;
+        }
+        
+        .header-input {
+            flex-grow: 1;
+            margin-left: 10px;
+            border: none;
+            border-bottom: 1px solid #000;
+            padding: 5px 0;
+            font-size: 14px;
+            outline: none;
+            background: transparent;
+        }
+        
+        .header-input:focus {
+            border-bottom: 2px solid #0066cc;
+        }
+        
+        .section-title {
+            background-color: #f0f0f0;
+            padding: 8px;
+            margin: 25px 0 10px 0;
+            font-weight: bold;
+            text-align: center;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+        
+        .tools-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+        }
+        
+        .tools-table th {
+            border: 1px solid #000;
+            padding: 8px;
+            background-color: #f5f5f5;
+            font-weight: bold;
+            text-align: center;
+            font-size: 12px;
+        }
+        
+        .tools-table td {
+            border: 1px solid #000;
+            padding: 5px;
+            vertical-align: middle;
+            height: 40px;
+        }
+        
+        .tool-col {
+            width: 60%;
+        }
+        
+        .check-col {
+            width: 12%;
+            text-align: center;
+        }
+        
+        .quantity-col {
+            width: 16%;
+            text-align: center;
+        }
+        
+        .tool-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            padding: 3px;
+            font-size: 12px;
+            background: transparent;
+        }
+        
+        .quantity-input {
+            width: 60px;
+            border: 1px solid #ccc;
+            outline: none;
+            padding: 3px;
+            font-size: 12px;
+            text-align: center;
+            border-radius: 3px;
+        }
+        
+        .checkbox-input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        .signature-section {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        
+        .signature-box {
+            width: 45%;
+            text-align: center;
+        }
+        
+        .signature-input {
+            width: 100%;
+            height: 40px;
+            border: none;
+            border-bottom: 1px solid #000;
+            text-align: center;
+            font-size: 14px;
+            outline: none;
+            background: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .signature-input:focus {
+            border-bottom: 2px solid #0066cc;
+        }
+        
+        .buttons-section {
+            margin-top: 30px;
+            text-align: center;
+            gap: 15px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .btn-primary {
+            background-color: #0066cc;
+            color: white;
+        }
+        
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+        }
+        
+        .btn:hover {
+            opacity: 0.8;
+        }
+        
+        @media print {
+            body { margin: 0; padding: 15px; }
+            .buttons-section, .nav-header { display: none; }
+            .section-title { page-break-inside: avoid; }
+            .tools-table { page-break-inside: auto; }
+            .tools-table tr { page-break-inside: avoid; }
+            input { border: none !important; }
+        }
+        
+        .no-print {
+            display: block;
+        }
+        
+        @media print {
+            .no-print {
+                display: none;
+            }
+        }
+
+        .add-row-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+            margin: 5px 0;
+        }
+
+        .add-row-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-header no-print">
+        <a href="index.html" class="back-btn">← Volver al inicio</a>
+        <h2>📦 Requerimientos de Herramientas</h2>
+    </div>
+
+    <div class="header-section">
+        <div class="header-field">
+            <label>Proyecto:</label>
+            <input type="text" class="header-input" id="proyecto" placeholder="Escriba el nombre del proyecto">
+        </div>
+        <div class="header-field">
+            <label>Unidad Móvil:</label>
+            <input type="text" class="header-input" id="unidad-movil" placeholder="Escriba la unidad móvil">
+        </div>
+        <div class="header-field">
+            <label>Solicitante:</label>
+            <input type="text" class="header-input" id="solicitante" placeholder="Nombre del solicitante">
+        </div>
+        <div class="header-field">
+            <label>Fecha:</label>
+            <input type="date" class="header-input" id="fecha">
+        </div>
+        <div class="header-field">
+            <label>Técnico Asignado:</label>
+            <input type="text" class="header-input" id="tecnico" placeholder="Nombre del técnico asignado">
+        </div>
+    </div>
+
+    <div class="section-title">--- REQUERIMIENTOS DE HERRAMIENTAS ---</div>
+    <table class="tools-table" id="toolsTable">
+        <thead>
+            <tr>
+                <th class="tool-col">Herramienta / Equipo</th>
+                <th class="check-col">Disponible</th>
+                <th class="quantity-col">Cantidad</th>
+                <th class="check-col">Entregado</th>
+            </tr>
+        </thead>
+        <tbody id="toolsTableBody">
+            <tr>
+                <td><input type="text" class="tool-input" placeholder="Nombre de la herramienta o equipo"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+                <td class="quantity-col"><input type="number" class="quantity-input" min="1" value="1"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="tool-input" placeholder="Nombre de la herramienta o equipo"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+                <td class="quantity-col"><input type="number" class="quantity-input" min="1" value="1"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="tool-input" placeholder="Nombre de la herramienta o equipo"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+                <td class="quantity-col"><input type="number" class="quantity-input" min="1" value="1"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="tool-input" placeholder="Nombre de la herramienta o equipo"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+                <td class="quantity-col"><input type="number" class="quantity-input" min="1" value="1"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="tool-input" placeholder="Nombre de la herramienta o equipo"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+                <td class="quantity-col"><input type="number" class="quantity-input" min="1" value="1"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="tool-input" placeholder="Nombre de la herramienta o equipo"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+                <td class="quantity-col"><input type="number" class="quantity-input" min="1" value="1"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="tool-input" placeholder="Nombre de la herramienta o equipo"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+                <td class="quantity-col"><input type="number" class="quantity-input" min="1" value="1"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="tool-input" placeholder="Nombre de la herramienta o equipo"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+                <td class="quantity-col"><input type="number" class="quantity-input" min="1" value="1"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="tool-input" placeholder="Nombre de la herramienta o equipo"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+                <td class="quantity-col"><input type="number" class="quantity-input" min="1" value="1"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="tool-input" placeholder="Nombre de la herramienta o equipo"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+                <td class="quantity-col"><input type="number" class="quantity-input" min="1" value="1"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="tool-input" placeholder="Nombre de la herramienta o equipo"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+                <td class="quantity-col"><input type="number" class="quantity-input" min="1" value="1"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="tool-input" placeholder="Nombre de la herramienta o equipo"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+                <td class="quantity-col"><input type="number" class="quantity-input" min="1" value="1"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="tool-input" placeholder="Nombre de la herramienta o equipo"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+                <td class="quantity-col"><input type="number" class="quantity-input" min="1" value="1"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="tool-input" placeholder="Nombre de la herramienta o equipo"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+                <td class="quantity-col"><input type="number" class="quantity-input" min="1" value="1"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="tool-input" placeholder="Nombre de la herramienta o equipo"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+                <td class="quantity-col"><input type="number" class="quantity-input" min="1" value="1"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="no-print">
+        <button class="add-row-btn" onclick="addToolRow()">➕ Agregar más herramientas</button>
+    </div>
+
+    <div class="signature-section">
+        <div class="signature-box">
+            <input type="text" class="signature-input" placeholder="Firma del Solicitante">
+            <p><strong>Firma del Solicitante</strong></p>
+        </div>
+        <div class="signature-box">
+            <input type="text" class="signature-input" placeholder="Firma del Técnico">
+            <p><strong>Firma del Técnico Asignado</strong></p>
+        </div>
+    </div>
+
+    <div class="buttons-section no-print">
+        <button class="btn btn-primary" onclick="window.print()">📄 Descargar PDF</button>
+        <button class="btn btn-secondary" onclick="clearForm()">🗑️ Limpiar Formulario</button>
+        <button class="btn btn-success" onclick="fillSample()">📝 Llenar Ejemplo</button>
+    </div>
+
+    <script>
+        function addToolRow() {
+            const tableBody = document.getElementById('toolsTableBody');
+            const newRow = tableBody.insertRow();
+            
+            newRow.innerHTML = `
+                <td><input type="text" class="tool-input" placeholder="Nombre de la herramienta o equipo"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+                <td class="quantity-col"><input type="number" class="quantity-input" min="1" value="1"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+            `;
+        }
+
+        function clearForm() {
+            // Limpiar campos de encabezado
+            document.getElementById('proyecto').value = '';
+            document.getElementById('unidad-movil').value = '';
+            document.getElementById('solicitante').value = '';
+            document.getElementById('fecha').value = '';
+            document.getElementById('tecnico').value = '';
+            
+            // Limpiar todas las herramientas
+            const toolInputs = document.querySelectorAll('.tool-input');
+            const quantityInputs = document.querySelectorAll('.quantity-input');
+            const checkboxes = document.querySelectorAll('.checkbox-input');
+            const signatureInputs = document.querySelectorAll('.signature-input');
+            
+            toolInputs.forEach(input => input.value = '');
+            quantityInputs.forEach(input => input.value = '1');
+            checkboxes.forEach(checkbox => checkbox.checked = false);
+            signatureInputs.forEach(input => input.value = '');
+            
+            alert('Formulario limpiado correctamente');
+        }
+
+        function fillSample() {
+            // Llenar datos de ejemplo
+            document.getElementById('proyecto').value = 'Instalación de Torre de Telecomunicaciones';
+            document.getElementById('unidad-movil').value = 'UM-002';
+            document.getElementById('solicitante').value = 'Carlos Rodriguez';
+            document.getElementById('fecha').value = '2025-09-25';
+            document.getElementById('tecnico').value = 'Ana Martinez';
+            
+            // Llenar herramientas de ejemplo
+            const sampleTools = [
+                'Taladro percutor',
+                'Llaves inglesas set',
+                'Destornilladores',
+                'Multímetro',
+                'Escalera telescópica',
+                'Casco de seguridad',
+                'Arnés de seguridad',
+                'Cable UTP Cat6',
+                'Conectores RJ45',
+                'Probador de cables'
+            ];
+            
+            const toolInputs = document.querySelectorAll('.tool-input');
+            const quantityInputs = document.querySelectorAll('.quantity-input');
+            
+            sampleTools.forEach((tool, index) => {
+                if (toolInputs[index]) {
+                    toolInputs[index].value = tool;
+                    quantityInputs[index].value = Math.floor(Math.random() * 5) + 1;
+                }
+            });
+            
+            const signatureInputs = document.querySelectorAll('.signature-input');
+            signatureInputs[0].value = 'Carlos Rodriguez';
+            signatureInputs[1].value = 'Ana Martinez';
+            
+            alert('Formulario rellenado con herramientas de ejemplo');
+        }
+    </script>
+</body>
+</html>
