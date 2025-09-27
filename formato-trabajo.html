@@ -81,7 +81,7 @@
         .work-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 25px;
+            margin-bottom: 10px;
         }
         
         .work-table th {
@@ -140,6 +140,25 @@
             cursor: pointer;
         }
         
+        .add-button-section {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .add-row-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        .add-row-btn:hover {
+            background-color: #218838;
+        }
+        
         .signature-section {
             margin-top: 40px;
             text-align: center;
@@ -194,13 +213,18 @@
             color: white;
         }
         
+        .btn-drive {
+            background-color: #4285f4;
+            color: white;
+        }
+        
         .btn:hover {
             opacity: 0.8;
         }
         
         @media print {
             body { margin: 0; padding: 15px; }
-            .buttons-section, .nav-header { display: none; }
+            .buttons-section, .nav-header, .add-button-section { display: none; }
             .section-title { page-break-inside: avoid; }
             .work-table { page-break-inside: auto; }
             .work-table tr { page-break-inside: avoid; }
@@ -234,10 +258,6 @@
             <input type="text" class="header-input" id="unidad-movil" placeholder="Escriba la unidad móvil">
         </div>
         <div class="header-field">
-            <label>Día:</label>
-            <input type="text" class="header-input" id="dia" placeholder="Escriba el día">
-        </div>
-        <div class="header-field">
             <label>Fecha:</label>
             <input type="date" class="header-input" id="fecha">
         </div>
@@ -247,9 +267,9 @@
         </div>
     </div>
 
-    <!-- 1. SEGURIDAD -->
+    <!-- SEGURIDAD -->
     <div class="section-title">--- SEGURIDAD ---</div>
-    <table class="work-table">
+    <table class="work-table" id="tabla-seguridad">
         <thead>
             <tr>
                 <th class="activity-col">Actividad</th>
@@ -277,36 +297,15 @@
                 <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
                 <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
             </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
         </tbody>
     </table>
+    <div class="add-button-section no-print">
+        <button class="add-row-btn" onclick="addRow('seguridad')">➕ Agregar fila</button>
+    </div>
 
-    <!-- 2. DESMONTAJE -->
+    <!-- DESMONTAJE -->
     <div class="section-title">--- DESMONTAJE ---</div>
-    <table class="work-table">
+    <table class="work-table" id="tabla-desmontaje">
         <thead>
             <tr>
                 <th class="activity-col">Actividad</th>
@@ -334,36 +333,15 @@
                 <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
                 <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
             </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
         </tbody>
     </table>
+    <div class="add-button-section no-print">
+        <button class="add-row-btn" onclick="addRow('desmontaje')">➕ Agregar fila</button>
+    </div>
 
-    <!-- 3. ANTENA -->
+    <!-- ANTENA -->
     <div class="section-title">--- ANTENA ---</div>
-    <table class="work-table">
+    <table class="work-table" id="tabla-antena">
         <thead>
             <tr>
                 <th class="activity-col">Actividad</th>
@@ -391,36 +369,15 @@
                 <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
                 <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
             </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
         </tbody>
     </table>
+    <div class="add-button-section no-print">
+        <button class="add-row-btn" onclick="addRow('antena')">➕ Agregar fila</button>
+    </div>
 
-    <!-- 4. RAMAL DE ALIMENTACIÓN Y SEÑALES -->
+    <!-- RAMAL DE ALIMENTACIÓN Y SEÑALES -->
     <div class="section-title">--- RAMAL DE ALIMENTACIÓN Y SEÑALES ---</div>
-    <table class="work-table">
+    <table class="work-table" id="tabla-ramal">
         <thead>
             <tr>
                 <th class="activity-col">Actividad</th>
@@ -448,36 +405,15 @@
                 <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
                 <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
             </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
         </tbody>
     </table>
+    <div class="add-button-section no-print">
+        <button class="add-row-btn" onclick="addRow('ramal')">➕ Agregar fila</button>
+    </div>
 
-    <!-- 5. SOPORTE DE JUNCTION BOX -->
+    <!-- SOPORTE DE JUNCTION BOX -->
     <div class="section-title">--- SOPORTE DE JUNCTION BOX ---</div>
-    <table class="work-table">
+    <table class="work-table" id="tabla-soporte">
         <thead>
             <tr>
                 <th class="activity-col">Actividad</th>
@@ -505,36 +441,15 @@
                 <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
                 <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
             </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
         </tbody>
     </table>
+    <div class="add-button-section no-print">
+        <button class="add-row-btn" onclick="addRow('soporte')">➕ Agregar fila</button>
+    </div>
 
-    <!-- 6. VALIDACIÓN -->
+    <!-- VALIDACIÓN -->
     <div class="section-title">--- VALIDACIÓN ---</div>
-    <table class="work-table">
+    <table class="work-table" id="tabla-validacion">
         <thead>
             <tr>
                 <th class="activity-col">Actividad</th>
@@ -562,56 +477,46 @@
                 <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
                 <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
             </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
-            <tr>
-                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
-                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
-            </tr>
         </tbody>
     </table>
+    <div class="add-button-section no-print">
+        <button class="add-row-btn" onclick="addRow('validacion')">➕ Agregar fila</button>
+    </div>
 
-    <!-- 7. FIRMA -->
+    <!-- FIRMA -->
     <div class="signature-section">
         <input type="text" class="signature-input" placeholder="Firma del Responsable">
         <p><strong>Firma del Responsable</strong></p>
     </div>
 
-    <!-- 8. BOTONES -->
+    <!-- BOTONES -->
     <div class="buttons-section no-print">
         <button class="btn btn-primary" onclick="window.print()">📄 Descargar PDF</button>
         <button class="btn btn-secondary" onclick="clearForm()">🗑️ Limpiar Formulario</button>
         <button class="btn btn-success" onclick="fillSample()">📝 Llenar Ejemplo</button>
+        <button class="btn btn-drive" onclick="saveToGoogleDrive()">💾 Guardar en Drive</button>
     </div>
 
     <script>
+        function addRow(seccion) {
+            const tabla = document.getElementById(`tabla-${seccion}`);
+            const tbody = tabla.querySelector('tbody');
+            
+            const nuevaFila = tbody.insertRow();
+            nuevaFila.innerHTML = `
+                <td><textarea class="activity-input" placeholder="Descripción de la actividad"></textarea></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+                <td class="check-col"><input type="checkbox" class="checkbox-input"></td>
+                <td><textarea class="obs-input" placeholder="Observaciones"></textarea></td>
+            `;
+        }
+
         function clearForm() {
-            // Limpiar campos de encabezado
             document.getElementById('proyecto').value = '';
             document.getElementById('unidad-movil').value = '';
-            document.getElementById('dia').value = '';
             document.getElementById('fecha').value = '';
             document.getElementById('responsable').value = '';
             
-            // Limpiar todas las actividades y observaciones
             const activityInputs = document.querySelectorAll('.activity-input');
             const obsInputs = document.querySelectorAll('.obs-input');
             const checkboxes = document.querySelectorAll('.checkbox-input');
@@ -626,28 +531,21 @@
         }
 
         function fillSample() {
-            // Llenar datos de ejemplo
             document.getElementById('proyecto').value = 'Proyecto Telecomunicaciones XYZ';
             document.getElementById('unidad-movil').value = 'UM-001';
-            document.getElementById('dia').value = 'Lunes';
             document.getElementById('fecha').value = '2025-09-25';
             document.getElementById('responsable').value = 'Juan Pérez';
             
-            // Llenar algunas actividades de ejemplo
             const activities = [
                 'Verificar EPP completo',
                 'Revisar herramientas',
-                'Inspección visual del equipo',
-                'Desconexión segura',
-                'Verificar integridad de antena'
+                'Inspección visual del equipo'
             ];
             
             const observations = [
                 'Todo en orden',
                 'Revisar casco',
-                'Equipo en buen estado',
-                'Sin anomalías',
-                'Antena funcional'
+                'Equipo en buen estado'
             ];
             
             const activityInputs = document.querySelectorAll('.activity-input');
@@ -666,8 +564,76 @@
             });
             
             document.querySelector('.signature-input').value = 'Juan Pérez';
-            
             alert('Formulario rellenado con datos de ejemplo');
+        }
+
+        function saveToGoogleDrive() {
+            const fecha = document.getElementById('fecha').value || new Date().toISOString().split('T')[0];
+            const proyecto = document.getElementById('proyecto').value || 'Proyecto';
+            const responsable = document.getElementById('responsable').value || 'Responsable';
+            const fileName = `Formato_Trabajo_${proyecto}_${responsable}_${fecha}.txt`;
+            
+            let contenido = `FORMATO DE TRABAJO TÉCNICO\n`;
+            contenido += `========================================\n\n`;
+            
+            contenido += `INFORMACIÓN GENERAL:\n`;
+            contenido += `- Proyecto: ${document.getElementById('proyecto').value}\n`;
+            contenido += `- Unidad Móvil: ${document.getElementById('unidad-movil').value}\n`;
+            contenido += `- Fecha: ${document.getElementById('fecha').value}\n`;
+            contenido += `- Responsable: ${document.getElementById('responsable').value}\n\n`;
+            
+            function procesarSeccion(titulo, tablaId) {
+                contenido += `${titulo}\n`;
+                contenido += `${'='.repeat(titulo.length)}\n`;
+                
+                const tabla = document.getElementById(tablaId);
+                const filas = tabla.querySelectorAll('tbody tr');
+                
+                let actividadNum = 1;
+                filas.forEach(fila => {
+                    const actividad = fila.querySelector('.activity-input').value.trim();
+                    const check1T = fila.querySelectorAll('.checkbox-input')[0].checked;
+                    const check2T = fila.querySelectorAll('.checkbox-input')[1].checked;
+                    const observaciones = fila.querySelector('.obs-input').value.trim();
+                    
+                    if (actividad) {
+                        contenido += `\n${actividadNum}. ${actividad}\n`;
+                        contenido += `   - 1T: ${check1T ? 'Completado ✓' : 'Pendiente ✗'}\n`;
+                        contenido += `   - 2T: ${check2T ? 'Completado ✓' : 'Pendiente ✗'}\n`;
+                        if (observaciones) {
+                            contenido += `   - Observaciones: ${observaciones}\n`;
+                        }
+                        actividadNum++;
+                    }
+                });
+                contenido += `\n`;
+            }
+            
+            procesarSeccion('SEGURIDAD', 'tabla-seguridad');
+            procesarSeccion('DESMONTAJE', 'tabla-desmontaje');
+            procesarSeccion('ANTENA', 'tabla-antena');
+            procesarSeccion('RAMAL DE ALIMENTACIÓN Y SEÑALES', 'tabla-ramal');
+            procesarSeccion('SOPORTE DE JUNCTION BOX', 'tabla-soporte');
+            procesarSeccion('VALIDACIÓN', 'tabla-validacion');
+            
+            const firma = document.querySelector('.signature-input').value.trim();
+            if (firma) {
+                contenido += `FIRMA DEL RESPONSABLE: ${firma}\n`;
+            }
+            
+            contenido += `\nFecha de generación: ${new Date().toLocaleString()}\n`;
+            
+            const blob = new Blob([contenido], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            alert(`Archivo descargado como: ${fileName}\n\nPara subirlo a Google Drive:\n1. Ve a drive.google.com\n2. Haz clic en "Nuevo"\n3. Selecciona "Subir archivo"\n4. Busca el archivo descargado\n\n¡O simplemente arrastra el archivo a tu Drive!`);
         }
 
         // Auto-resize textareas
