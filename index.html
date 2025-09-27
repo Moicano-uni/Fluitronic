@@ -3,227 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formularios Técnicos - Equipo</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #333;
-        }
-
-        .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-            padding: 50px;
-            text-align: center;
-            max-width: 600px;
-            width: 90%;
-        }
-
-        .logo {
-            font-size: 4rem;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-            font-size: 2.5rem;
-            font-weight: 300;
-        }
-
-        .subtitle {
-            color: #7f8c8d;
-            margin-bottom: 50px;
-            font-size: 1.2rem;
-        }
-
-        .forms-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .form-card {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 30px 20px;
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .form-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .form-card:hover::before {
-            left: 100%;
-        }
-
-        .form-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            border-color: #667eea;
-        }
-
-        .form-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .form-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-
-        .form-description {
-            color: #7f8c8d;
-            font-size: 0.95rem;
-            line-height: 1.4;
-        }
-
-        .footer {
-            color: #95a5a6;
-            font-size: 0.9rem;
-            border-top: 1px solid #ecf0f1;
-            padding-top: 20px;
-        }
-
-        .version {
-            background: #3498db;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            display: inline-block;
-            margin-top: 15px;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 30px 20px;
-            }
-            
-            .forms-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .form-card {
-                padding: 25px 15px;
-            }
-        }
-
-        .quick-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 15px;
-            margin: 30px 0;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #667eea;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-        }
-    </style>
+    <title>Tu Repositorio - Herramientas y Aplicaciones</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="container">
-        <div class="logo">⚡</div>
-        <h1>Formularios Técnicos</h1>
-        <p class="subtitle">Sistema de gestión y control de trabajos técnicos</p>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold text-center mb-8">Herramientas y Aplicaciones</h1>
         
-        <div class="quick-stats">
-            <div class="stat-item">
-                <div class="stat-number">2</div>
-                <div class="stat-label">Formularios</div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Formulario de Trabajo -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-semibold mb-3">📋 Formato de Trabajo</h2>
+                <p class="text-gray-600 mb-4">Formulario para registro y seguimiento de trabajos.</p>
+                <a href="formato-trabajo.html" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                    Abrir formulario
+                </a>
             </div>
-            <div class="stat-item">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Digital</div>
+
+            <!-- Requerimientos -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-semibold mb-3">🛠️ Requerimientos</h2>
+                <p class="text-gray-600 mb-4">Lista de herramientas y requerimientos del proyecto.</p>
+                <a href="requerimientos-herramientas.html" class="inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                    Ver requerimientos
+                </a>
             </div>
-            <div class="stat-item">
-                <div class="stat-number">PDF</div>
-                <div class="stat-label">Exportable</div>
+
+            <!-- 🆕 NUEVO: Cotizador Automático -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-semibold mb-3">💰 Cotizador Automático</h2>
+                <p class="text-gray-600 mb-4">Obtén cotizaciones automáticas de productos industriales en Perú.</p>
+                <a href="cotizador.html" class="inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">
+                    Abrir cotizador
+                </a>
             </div>
         </div>
 
-        <div class="forms-grid">
-            <a href="formato-trabajo.html" class="form-card">
-                <span class="form-icon">🔧</span>
-                <h3 class="form-title">Formato de Trabajo</h3>
-                <p class="form-description">Control completo de actividades técnicas por secciones: Seguridad, Desmontaje, Antena, Alimentación y Validación</p>
-            </a>
-
-            <a href="requerimientos-herramientas.html" class="form-card">
-                <span class="form-icon">📦</span>
-                <h3 class="form-title">Requerimientos de Herramientas</h3>
-                <p class="form-description">Gestión de inventario y control de entrega de herramientas y equipos técnicos</p>
-            </a>
-        </div>
-
-        <div class="footer">
-            <p>📱 Funciona en cualquier dispositivo • 🌐 Sin conexión requerida • 💾 Descarga directa en PDF</p>
-            <span class="version">v1.0</span>
+        <!-- Información adicional -->
+        <div class="mt-12 text-center">
+            <h2 class="text-2xl font-bold mb-4">Acerca de este repositorio</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+                Colección de herramientas web para facilitar el trabajo diario, 
+                incluyendo formularios, cotizadores y herramientas de productividad.
+            </p>
         </div>
     </div>
-
-    <script>
-        // Pequeña animación de entrada
-        document.addEventListener('DOMContentLoaded', function() {
-            const container = document.querySelector('.container');
-            container.style.opacity = '0';
-            container.style.transform = 'translateY(30px)';
-            
-            setTimeout(() => {
-                container.style.transition = 'all 0.8s ease';
-                container.style.opacity = '1';
-                container.style.transform = 'translateY(0)';
-            }, 100);
-        });
-    </script>
 </body>
 </html>
