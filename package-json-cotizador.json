@@ -1,0 +1,64 @@
+{
+  "name": "cotizador-automatico-peru",
+  "version": "1.0.0",
+  "description": "Aplicación web para cotización automática de productos industriales en Perú mediante análisis de imágenes",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && gh-pages -d build",
+    "lint": "eslint src/",
+    "format": "prettier --write src/"
+  },
+  "keywords": [
+    "cotizador",
+    "peru",
+    "industrial",
+    "productos",
+    "precios",
+    "react",
+    "image-recognition"
+  ],
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "homepage": "https://tu-usuario.github.io/tu-repositorio",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "lucide-react": "^0.263.1",
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "eslint": "^8.21.0",
+    "prettier": "^2.7.1",
+    "gh-pages": "^4.0.0",
+    "tailwindcss": "^3.3.0",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.24"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tu-usuario/tu-repositorio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tu-usuario/tu-repositorio/issues"
+  }
+}
