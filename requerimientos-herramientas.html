@@ -392,6 +392,7 @@
         <button class="btn btn-primary" onclick="window.print()">📄 Descargar PDF</button>
         <button class="btn btn-secondary" onclick="clearForm()">🗑️ Limpiar Formulario</button>
         <button class="btn btn-success" onclick="fillSample()">📝 Llenar Ejemplo</button>
+        <button class="btn btn-primary" onclick="saveToGoogleDrive()" style="background-color: #4285f4;">💾 Guardar en Drive</button>
     </div>
 
     <script>
@@ -466,6 +467,71 @@
             signatureInputs[1].value = 'Ana Martinez';
             
             alert('Formulario rellenado con herramientas de ejemplo');
+        }
+
+        function saveToGoogleDrive() {
+            // Generar nombre del archivo con fecha y datos del proyecto
+            const fecha = document.getElementById('fecha').value || new Date().toISOString().split('T')[0];
+            const proyecto = document.getElementById('proyecto').value || 'Proyecto';
+            const solicitante = document.getElementById('solicitante').value || 'Solicitante';
+            const fileName = `Requerimientos_Herramientas_${proyecto}_${solicitante}_${fecha}.txt`;
+            
+            // Recopilar todos los datos del formulario
+            let contenido = `REQUERIMIENTOS DE HERRAMIENTAS\n`;
+            contenido += `=====================================\n\n`;
+            
+            // Datos del encabezado
+            contenido += `INFORMACIÓN GENERAL:\n`;
+            contenido += `- Proyecto: ${document.getElementById('proyecto').value}\n`;
+            contenido += `- Unidad Móvil: ${document.getElementById('unidad-movil').value}\n`;
+            contenido += `- Solicitante: ${document.getElementById('solicitante').value}\n`;
+            contenido += `- Fecha: ${document.getElementById('fecha').value}\n`;
+            contenido += `- Técnico Asignado: ${document.getElementById('tecnico').value}\n\n`;
+            
+            // Procesar tabla de herramientas
+            contenido += `LISTA DE HERRAMIENTAS Y EQUIPOS:\n`;
+            contenido += `================================\n`;
+            
+            const filas = document.querySelectorAll('#toolsTableBody tr');
+            let herramientaNum = 1;
+            
+            filas.forEach(fila => {
+                const herramienta = fila.querySelector('.tool-input').value;
+                const disponible = fila.querySelectorAll('.checkbox-input')[0].checked;
+                const cantidad = fila.querySelector('.quantity-input').value;
+                const entregado = fila.querySelectorAll('.checkbox-input')[1].checked;
+                
+                if (herramienta.trim()) {
+                    contenido += `\n${herramientaNum}. ${herramienta}\n`;
+                    contenido += `   - Cantidad: ${cantidad}\n`;
+                    contenido += `   - Disponible: ${disponible ? 'Sí ✓' : 'No ✗'}\n`;
+                    contenido += `   - Entregado: ${entregado ? 'Sí ✓' : 'No ✗'}\n`;
+                    herramientaNum++;
+                }
+            });
+            
+            // Añadir firmas
+            const signatureInputs = document.querySelectorAll('.signature-input');
+            contenido += `\n\nFIRMAS:\n`;
+            contenido += `=======\n`;
+            contenido += `Solicitante: ${signatureInputs[0].value}\n`;
+            contenido += `Técnico Asignado: ${signatureInputs[1].value}\n`;
+            
+            contenido += `\nFecha de generación: ${new Date().toLocaleString()}\n`;
+            
+            // Crear el archivo y descargarlo
+            const blob = new Blob([contenido], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            // Mostrar mensaje con instrucciones para Google Drive
+            alert(`Archivo descargado como: ${fileName}\n\nPara subirlo a Google Drive:\n1. Ve a drive.google.com\n2. Haz clic en "Nuevo"\n3. Selecciona "Subir archivo"\n4. Busca el archivo descargado\n\n¡O simplemente arrastra el archivo a tu Drive!`);
         }
     </script>
 </body>
