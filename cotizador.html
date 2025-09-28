@@ -807,35 +807,46 @@
             resultsSection.classList.add('show');
         }
 
-        function showGoogleSheetsGuide() {
-            const guide = `
-🆓 GOOGLE SHEETS GRATUITO - GUÍA RÁPIDA
+async function showGoogleSheetsGuide() {
+    if (!currentResults) return;
 
-1. Ve a script.google.com
-2. Crea un nuevo proyecto
-3. Pega este código:
+    // ⬇️ AQUÍ PONES TU URL DEL GOOGLE APPS SCRIPT ⬇️
+    const webhookURL = 'https://script.google.com/macros/s/AKfycbybazW3iYKo8Os_RWTQLRM3tgK5hLuUhMzlYGKaiIZq0--Zc7MliN3ZSKv5DcTGCO5W/exec';
+    
+    try {
+        const data = {
+            nombre: currentResults.name,
+            marca: currentResults.specifications.marca || 'N/A',
+            precioPromedio: currentResults.averagePrice,
+            precioSodimac: currentResults.prices[0]?.price || 'N/A',
+            precioPromart: currentResults.prices[1]?.price || 'N/A',
+            precioMaestro: currentResults.prices[2]?.price || 'N/A',
+            descripcion: currentResults.description
+        };
 
-function doPost(e) {
-  var sheet = SpreadsheetApp.openById('TU_ID_DE_SHEET').getActiveSheet();
-  var data = JSON.parse(e.postData.contents);
-  sheet.appendRow([data.fecha, data.nombre, data.precio]);
-  return ContentService.createTextOutput('OK');
-}
+        showSuccess('💾 Guardando en Google Sheets...');
 
-4. Despliega como Web App
-5. Copia la URL
-6. Reemplaza en el código
+        const response = await fetch(webhookURL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
 
-¿Ver tutorial completo?
-            `;
-            
-            if (confirm(guide)) {
-                window.open('https://developers.google.com/apps-script/guides/web', '_blank');
-            }
-            
-            // Simular guardado
-            showSuccess('📝 Datos preparados para Google Sheets. Sigue la guía para configurar el guardado automático.');
+        const result = await response.json();
+        
+        if (result.status === 'success') {
+            showSuccess('✅ ¡Cotización guardada exitosamente en Google Sheets!');
+        } else {
+            throw new Error(result.message);
         }
+        
+    } catch (error) {
+        showError('❌ Error al guardar: ' + error.message);
+        console.log('Error details:', error);
+    }
+}
 
         function showError(message) {
             const errorDiv = document.createElement('div');
